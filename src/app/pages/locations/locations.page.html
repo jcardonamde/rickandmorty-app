@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ Locations.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Locations</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid>
+    <ion-row *ngFor="let residentsGroup of chunkArray(Locations.residents, 3)">
+      <ion-col *ngFor="let resident of residentsGroup" size-md="4">
+        <ion-item>
+          <h2>Resident:</h2>
+        </ion-item>
+        <ion-item>
+          <ion-label> {{ resident }} </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
